@@ -1,0 +1,2 @@
+Texture2DRD
+Texture2DArrayRD

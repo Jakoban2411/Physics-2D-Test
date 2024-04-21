@@ -1,0 +1,143 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbr866pjjex2i"]
+
+[ext_resource type="FontFile" uid="uid://cplfnvhwsf4bk" path="res://Ubuntu-Regular.ttf" id="1_43mu8"]
+[ext_resource type="Script" path="res://scenes/CameraGimbal.gd" id="2"]
+
+[sub_resource type="FontFile" id="FontFile_rn67i"]
+fallbacks = Array[Font]([ExtResource("1_43mu8")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_gtx7b"]
+fallbacks = Array[Font]([ExtResource("1_43mu8")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -369.0
+offset_bottom = 157.0
+grow_horizontal = 0
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/ReferenceRect"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 84.0
+offset_right = 362.0
+offset_bottom = 106.0
+text = "Reset"
+
+[node name="FPSLabel" type="Label" parent="CanvasLayer/ReferenceRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 2.0
+offset_right = 119.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "FPS:"
+
+[node name="NumLabel" type="Label" parent="CanvasLayer/ReferenceRect"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 23.0
+offset_right = 283.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0.0117647, 0.117647, 0.6, 1)
+text = "rate(ms):"
+
+[node name="SleepLabel" type="Label" parent="CanvasLayer/ReferenceRect"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 42.0
+offset_right = 346.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.0117647, 0.117647, 0.6, 1)
+text = "sleeping: (n/a)"
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/ReferenceRect"]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 37.0
+offset_right = 255.0
+offset_bottom = 61.0
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/ReferenceRect"]
+layout_mode = 0
+offset_left = 236.091
+offset_top = 60.9428
+offset_right = 360.091
+offset_bottom = 76.9428
+min_value = 5.0
+max_value = 250.0
+page = 5.0
+value = 5.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+tick_count = 4
+ticks_on_borders = true
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/ReferenceRect"]
+layout_mode = 0
+offset_left = 226.274
+offset_top = 75.4247
+offset_right = 302.274
+offset_bottom = 115.425
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ReferenceRect"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 116.0
+offset_right = 364.0
+offset_bottom = 151.0
+theme_override_fonts/normal_font = SubResource("FontFile_rn67i")
+text = " 0"
+
+[node name="TimeLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_right = 158.0
+offset_bottom = 56.0
+theme_override_fonts/normal_font = SubResource("FontFile_gtx7b")
+bbcode_enabled = true
+text = "time"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(125, 124)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-3, 1, -123, -124, -126, 522, 1027, 522, 1027, -122, 803, 49, 692, 221, 486, 388, 359, 391, 211, 241, 76, 22)
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="."]
+position = Vector2(529, 506)
+
+[node name="CubeContainer" type="Node2D" parent="."]
+position = Vector2(544, 494)
+
+[node name="CameraGimbal" type="Node3D" parent="."]
+script = ExtResource("2")
+
+[node name="InnerGimbal" type="Node3D" parent="CameraGimbal"]
+
+[node name="Camera2D" type="Camera2D" parent="CameraGimbal/InnerGimbal"]
+position = Vector2(576, 325)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0

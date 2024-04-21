@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjqj6uqwexmgp"]
+
+[ext_resource type="Texture2D" uid="uid://crms3le4txv0c" path="res://icon.svg" id="1_qahjp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5v4jg"]
+radius = 59.1354
+
+[sub_resource type="SphereMesh" id="SphereMesh_xcglt"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2(916, 74)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5v4jg")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("SphereMesh_xcglt")
+texture = ExtResource("1_qahjp")
